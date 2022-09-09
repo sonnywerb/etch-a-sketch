@@ -1,43 +1,29 @@
-function writeMeta() {
-    //alert('ok');
-    $("meta[name='viewport']").attr('content', 'width=device-width, initial-scale=0.4'); 
-    //$("#page").html(''); 
-}
-window.onload = writeMeta;
-
 let isDrawing = false;
 
+// get the container to store the grid
 const container = document.getElementById('container');
 
-function makeGrid(rows, cols) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    for (c = 0; c < (rows * cols); c++) {
+function makeGrid(n) {
+    container.style.setProperty('--grid-rows', n);
+    container.style.setProperty('--grid-cols', n);
+    for (i = 0; i < n * n; i++) {
         let cell = document.createElement('div');
-        cell.innerText = (c + 1);
-        container.appendChild(cell).className = 'grid-item';
-    };
-};
+        cell.textContent = i;
+        cell.className = 'cell';
+        container.append(cell);
+    }
+}
+makeGrid(16);
 
-makeGrid(16, 16);
-
-const cells = document.querySelectorAll('.grid-item');
+const cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
     cell.addEventListener('mousedown', () => {
         isDrawing = true;
+        cell.classList.add('draw');
     });
     cell.addEventListener('mousemove', () => {
         if (isDrawing)
-            cell.classList.add('highlight');
-    });
-
-    // for mobile
-    cell.addEventListener('touchstart', () => {
-        isDrawing = true;
-    });
-    cell.addEventListener('touchmove', () => {
-        if (isDrawing)
-            cell.classList.add('highlight');
+            cell.classList.add('draw');
     });
 });
 
