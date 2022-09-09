@@ -23,6 +23,15 @@ cells.forEach((cell) => {
         if (isDrawing)
             cell.classList.add('highlight');
     });
+
+    // for mobile
+    cell.addEventListener('touchstart', () => {
+        isDrawing = true;
+    });
+    cell.addEventListener('touchmove', () => {
+        if (isDrawing)
+            cell.classList.add('highlight');
+    });
 });
 
 window.addEventListener('mouseup', () => {
