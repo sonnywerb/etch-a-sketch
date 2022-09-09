@@ -23,6 +23,7 @@ cells.forEach((cell) => {
     // });
     cell.addEventListener('mousemove', () => {
         if (isDrawing)
+            isDrawing = true;
             cell.classList.add('draw');
     });
 });
