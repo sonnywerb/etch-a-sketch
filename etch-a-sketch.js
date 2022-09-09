@@ -17,10 +17,10 @@ makeGrid(16);
 
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
-    cell.addEventListener('mousedown', () => {
-        isDrawing = true;
-        cell.classList.add('draw');
-    });
+    // cell.addEventListener('mousedown', () => {
+    //     isDrawing = true;
+    //     cell.classList.add('draw');
+    // });
     cell.addEventListener('mousemove', () => {
         if (isDrawing)
             cell.classList.add('draw');
