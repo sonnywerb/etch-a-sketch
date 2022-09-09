@@ -1,3 +1,10 @@
+function writeMeta() {
+    //alert('ok');
+    $("meta[name='viewport']").attr('content', 'width=device-width, initial-scale=0.4'); 
+    //$("#page").html(''); 
+}
+window.onload = writeMeta;
+
 let isDrawing = false;
 
 const container = document.getElementById('container');
