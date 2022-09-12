@@ -17,7 +17,7 @@ function createGrid(n) {
         container.append(cell);
     }
 }
-createGrid(50);
+createGrid(25);
 
 function getContentLength (element) {
     let styles = getComputedStyle(element)
@@ -29,7 +29,7 @@ function getContentLength (element) {
 
 const cells = document.querySelectorAll('.grid-item');
 cells.forEach((cell) => {
-    cell.addEventListener('mousedown', () => {
+    cell.addEventListener('touchmove', () => {
         isDrawing = true;
         cell.classList.add('draw');
     });
