@@ -53,6 +53,9 @@ reset.addEventListener('click', () => {
 const newGrid = document.getElementById('newGrid');
 newGrid.addEventListener('click', () => {
     let size = prompt("Please enter the size of new grid", '16');
+    if (size === null) {
+        return;
+    }
     size =  parseInt(size);
     deleteGrid();
     createGrid(size);
