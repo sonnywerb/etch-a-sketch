@@ -12,6 +12,11 @@ body {
     -webkit-user-select: none;
 }
 
+#header {
+    display: flex;
+    justify-content: center;
+}
+
 #container {
     box-sizing: content-box;
     display: grid;
@@ -29,6 +34,7 @@ body {
 #buttons {
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .draw {

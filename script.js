@@ -42,6 +42,7 @@ function draw() {
     });
 }
 
+// Button Functionalities
 const reset = document.getElementById('reset');
 reset.addEventListener('click', () => {
     const drawnCells = document.querySelectorAll('.draw');
@@ -50,9 +51,8 @@ reset.addEventListener('click', () => {
     });
 });
 
-// Button to create new grid
 function newGrid() {
-    let size = prompt("Please enter the size of new grid (1-50)", '16');
+    let size = prompt("Please enter the size of new grid (1 - 50)", '16');
     if (size === null) {
         return;
     }else if (isNaN(size) || size === "") {
