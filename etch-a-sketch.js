@@ -1,7 +1,6 @@
-let isDrawing = false;
-
 // get the container to store the grid
 const container = document.getElementById('container');
+// get size of container
 let containerLength = getContentLength(container);
 
 function createGrid(n) {
@@ -29,25 +28,9 @@ function getContentLength (element) {
 
 const cells = document.querySelectorAll('.grid-item');
 cells.forEach((cell) => {
-    cell.addEventListener('touchmove', () => {
-        isDrawing = true;
+    cell.addEventListener('mousemove', () => {
         cell.classList.add('draw');
     });
-    cell.addEventListener('mousemove', () => {
-        if (isDrawing)
-            isDrawing = true;
-            cell.classList.add('draw');
-    });
 });
 
-window.addEventListener('mouseup', () => {
-    if (isDrawing) {
-        isDrawing = false;
-    }
-});
 
-function preventBehavior(e) {
-    e.preventDefault(); 
-};
-
-document.addEventListener("touchmove", preventBehavior, {passive: false});
