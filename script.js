@@ -1,3 +1,5 @@
+let color = false;
+
 // get the container to store the grid
 const container = document.getElementById('container');
 // get size of container
@@ -26,6 +28,8 @@ function createGrid(n) {
     draw();
 }
 
+createGrid(16);
+
 function deleteGrid() {
     const gridItems = document.querySelectorAll('.grid-item')
     gridItems.forEach((item) => {
@@ -34,22 +38,42 @@ function deleteGrid() {
 }
 
 function draw() {
-    const cells = document.querySelectorAll('.grid-item');
-    cells.forEach((cell) => {
-        cell.addEventListener('mousemove', () => {
-            cell.classList.add('draw');
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach((item) => {
+        item.addEventListener('mouseover', (e) => {
+            if (color) {
+                e.target.style.backgroundColor = randomColor();
+            } else {
+                e.target.style.backgroundColor = '#000000';
+            }
         });
     });
 }
 
-// Button Functionalities
-const reset = document.getElementById('reset');
-reset.addEventListener('click', () => {
-    const drawnCells = document.querySelectorAll('.draw');
-    drawnCells.forEach((drawnCell) => {
-        drawnCell.classList.remove('draw');
+function randomColor() {
+    return `hsl(${Math.random() * 360}, 100%, 50%)`
+}
+
+function erase() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach((item) => {
+        item.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'transparent';
+        });
     });
-});
+}
+const eraseBtn = document.getElementById('eraser');
+eraseBtn.addEventListener('click', erase);
+
+// Button Functionalities
+function clearGrid() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach((item) => {
+        item.style.backgroundColor = 'transparent';
+    });
+}
+const clearGridBtn = document.getElementById('clear-grid');
+clearGridBtn.addEventListener('click', clearGrid);
 
 function newGrid() {
     let size = prompt("Please enter the size of new grid (1 - 50)", '16');
@@ -64,7 +88,17 @@ function newGrid() {
         createGrid(size);
     }
 }
-const newGridBtn = document.getElementById('newGrid');
+const newGridBtn = document.getElementById('new-grid');
 newGridBtn.addEventListener('click', newGrid);
 
-createGrid(16);
+const blackBtn = document.getElementById('black');
+blackBtn.addEventListener('click', () => {
+    color = false;
+    draw();
+});
+
+const colorBtn = document.getElementById('color');
+colorBtn.addEventListener('click', () => {
+    color = true;
+    draw();
+});
