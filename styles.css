@@ -5,7 +5,7 @@
 
 * {
     box-sizing: border-box;
-    border: dotted 1px red;
+    /* border: dotted 1px red; */
 }
 body {
     user-select: none;
