@@ -5,8 +5,8 @@
 
 * {
     box-sizing: border-box;
-    /* border: dotted 1px red; */
 }
+
 body {
     user-select: none;
     -webkit-user-select: none;
@@ -24,21 +24,17 @@ body {
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     height: 50vh;
     width: 50vh;
-    margin: 3vh auto 3vh;
+    margin: 0 auto 3vh;
 }
 
 .grid-item {
-    outline: solid 1px #ddd;
+    outline: solid .5px #ddd;
 }
 
 #buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
-}
-
-.draw {
-    background-color: black;
 }
 
 
