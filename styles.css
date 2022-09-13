@@ -5,6 +5,7 @@
 
 * {
     box-sizing: border-box;
+    border: dotted 1px red;
 }
 body {
     user-select: none;
@@ -23,6 +24,11 @@ body {
 
 .grid-item {
     outline: solid 1px #ddd;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
 }
 
 .draw {
