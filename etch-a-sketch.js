@@ -33,4 +33,9 @@ cells.forEach((cell) => {
     });
 });
 
-
+const reset = document.getElementById('reset');
+reset.addEventListener('click', () => {
+    cells.forEach((cell) => {
+        cell.classList.remove('draw');
+    });
+});
