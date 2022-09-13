@@ -50,16 +50,27 @@ reset.addEventListener('click', () => {
     });
 });
 
-const newGrid = document.getElementById('newGrid');
-newGrid.addEventListener('click', () => {
-    let size = prompt("Please enter the size of new grid", '16');
+function newGrid() {
+    let size = prompt("Please enter the size of new grid (1-50)", '16');
+    console.log(size);
     if (size === null) {
         return;
+    } else if (size < 1 || size > 50) {
+        alert('ERROR: Please input a size between 1 and 50!');
+        return;
+    } else if (isNaN(size)) {
+        // true -> size is not a number
+        // false -> size is a number
+        console.log(isNaN(size));
+        alert('ERROR: Please input a number.');
+    } else {
+        deleteGrid();
+        createGrid(size);
     }
-    size =  parseInt(size);
-    deleteGrid();
-    createGrid(size);
-})
+}
+
+const newGridBtn = document.getElementById('newGrid');
+newGridBtn.addEventListener('click', newGrid);
 
 // user clicks new grid
 // a prompt will come up to ask for size of grid
