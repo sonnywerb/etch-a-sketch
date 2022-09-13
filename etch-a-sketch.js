@@ -50,6 +50,7 @@ reset.addEventListener('click', () => {
     });
 });
 
+// Button to create new grid
 function newGrid() {
     let size = prompt("Please enter the size of new grid (1-50)", '16');
     console.log(size);
@@ -68,13 +69,7 @@ function newGrid() {
         createGrid(size);
     }
 }
-
 const newGridBtn = document.getElementById('newGrid');
 newGridBtn.addEventListener('click', newGrid);
-
-// user clicks new grid
-// a prompt will come up to ask for size of grid
-// user inputs grid size
-// pass the input into the createGrid parameter
 
 createGrid(16);
