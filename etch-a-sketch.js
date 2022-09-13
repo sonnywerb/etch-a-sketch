@@ -53,17 +53,12 @@ reset.addEventListener('click', () => {
 // Button to create new grid
 function newGrid() {
     let size = prompt("Please enter the size of new grid (1-50)", '16');
-    console.log(size);
     if (size === null) {
         return;
+    }else if (isNaN(size) || size === "") {
+        alert('ERROR: Please input a number!'); 
     } else if (size < 1 || size > 50) {
         alert('ERROR: Please input a size between 1 and 50!');
-        return;
-    } else if (isNaN(size)) {
-        // true -> size is not a number
-        // false -> size is a number
-        console.log(isNaN(size));
-        alert('ERROR: Please input a number.');
     } else {
         deleteGrid();
         createGrid(size);
