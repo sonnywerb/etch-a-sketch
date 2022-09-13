@@ -18,7 +18,7 @@ body {
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     height: 50vh;
     width: 50vh;
-    margin: 0 auto;
+    margin: 3vh auto 3vh;
 }
 
 .grid-item {
